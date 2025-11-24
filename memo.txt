@@ -33,14 +33,16 @@ npm i dotenv
 브랜치 목록 보기
 git branch
 
-git swich -c mysql-support (git checkout -b mysql-support)
+mysql-support 브랜치 생성 + 이동
+git swtich -c mysql-support (git checkout -b mysql-support)
 
-이동 
-git swich main
+다시 main 브랜치로 이동
+git switch main
 
-git swich -c feature/mysql-support
+기능용 브랜치 feature/mysql-support 생성 + 이동
+git switch -c feature/mysql-support
 
-삭제
+더 이상 필요 없는 mysql-support 브랜치 삭제
 git branch -d mysql-support
 
 npm i  mysql2

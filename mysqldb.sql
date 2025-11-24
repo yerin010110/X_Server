@@ -15,4 +15,7 @@ create table posts(
     createAt datetime default now(),
     text varchar(2000) not null,
     foreign key(useridx) references users(idx)
-)
+);
+
+select * from users;
+select * from posts;
