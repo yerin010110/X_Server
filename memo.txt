@@ -20,3 +20,7 @@ ex) if (!(authHeader && authHeader.startsWith("Bearer "))) {
   }
 
 npm i dotenv
+
+브랜치
+같은 프로젝트 안에서 서로 다른 개발 라인을 만들고 각자 개발 후, 다시 합칠 수 있는 기능 
+
