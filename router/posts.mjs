@@ -6,20 +6,17 @@ import { validate } from "../middleware/validate.mjs";
 const router = express.Router();
 
 const validatePost = [
-  body("text")
-    .trim()
-    .isLength({ min: 4 })
-    .withMessage("최소 4자 이상 입력해주세요!"),
+  body("text").trim().isLength({ min: 4 }).withMessage("최소 4자이상 입력"),
   validate,
 ];
 
 // 전체 포스트 가져오기
 // 특정 아이디에 대한 포스트 가져오기
 // http://127.0.0.1:8080/post
-// http://127.0.0.1:8080/post?user id=XX
-router.get("/", postController.getPosts); // / 로 바로 이동 가능
+// http://127.0.0.1:8080/post?userid=XXX
+router.get("/", postController.getPosts);
 
-// 글 번호에 대한 포스트 가져오기
+// 글번호에 대한 포스트 가져오기
 // http://127.0.0.1:8080/post/:id
 router.get("/:id", postController.getPost);
 
@@ -34,4 +31,5 @@ router.put("/:id", validatePost, postController.updatePost);
 // 포스트 삭제하기
 // http://127.0.0.1:8080/post/:id
 router.delete("/:id", postController.deletePost);
+
 export default router;

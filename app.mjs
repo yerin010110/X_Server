@@ -13,4 +13,6 @@ app.use((req, res, next) => {
   res.sendStatus(404);
 });
 
-app.listen(8080); // 기본 포트가 3000 이기에 피하기 위해 작성
+app.listen(8080, () => {
+  console.log("서버 실행중");
+}); // 기본 포트가 3000 이기에 피하기 위해 작성

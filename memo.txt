@@ -1,3 +1,20 @@
 npm i > 굳이 따로 설치할 필요 없이 사용한 nodemon 다 설치 해줌
 
 npm i express-validator
+
+Authorization 
+- http 인증 정보를 담기 위한 규칙
+
+    Authorization:Basic AWEREARWFQERFADGASAFD==
+
+Bearer 
+- JWT 기반의 인증 규칙
+- 이 토큰을 가지고 있는 사람은 인증된 사용자로 간주한다라는 의미
+
+    Authorization:Bearer AWEREARWFQERFADGASAFD==
+
+위와 같이 암호화되어있으면 js기반으로 되어있구나라고 인지 & Bearer 하고 띄어쓰기가 되어있어야 합니다. 
+ex) if (!(authHeader && authHeader.startsWith("Bearer "))) {
+    console.log("헤더 에러");
+    return res.status(401).json(AUTH_ERROR);
+  }

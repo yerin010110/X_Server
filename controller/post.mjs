@@ -1,4 +1,3 @@
-import { json } from "express";
 import * as postRepository from "../data/post.mjs";
 
 // 모든 포스트를 가져오는 함수
@@ -36,7 +35,7 @@ export async function updatePost(req, res, next) {
   if (post) {
     res.status(201).json(post);
   } else {
-    res.status(404).json({ message: `${id}에 해당하는 포스트가 없습니다.` });
+    res.status(404).json({ message: `${id}의 포스트가 없습니다` });
   }
 }
 
