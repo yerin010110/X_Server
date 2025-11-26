@@ -35,7 +35,7 @@ export async function updatePost(req, res, next) {
     if (!post) {
         res.status(404).json({ message: `${id}의 포스트가 없습니다` });
     }
-    if (post.idx !== req.id) {
+    if (post. userIdx!== req.id) {
         console.error();
         return res.sendStatus(403);
     }
@@ -50,7 +50,7 @@ export async function deletePost(req, res, next) {
     if (!post) {
         res.status(404).json({ message: `${id}의 포스트가 없습니다` });
     }
-    if (post.idx !== req.id) {
+    if (post.userIdx !== req.id) {
         return res.sendStatus(403);
     }
     await postRepository.remove(id);
