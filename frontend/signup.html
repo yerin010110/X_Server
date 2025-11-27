@@ -1,17 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>회원가입</title>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
-    <body>
-        <h2>회원가입</h2>
-        <form id="signupForm">
-            <input id="username" placeholder="아이디" />
-            <input id="password" type="password" placeholder="비밀번호" />
-            <button>가입하기</button>
-        </form>
+    <body class="auth-body">
+        <div class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-logo">
+                    <span class="logo-icon">
+                        <span class="logo-dot"></span>
+                    </span>
+                    <div class="auth-logo-text">
+                        <div class="logo-text-main">WORKPLACE</div>
+                        <div class="logo-text-sub">Admin</div>
+                    </div>
+                </div>
+
+                <h2 class="auth-title">회원가입</h2>
+
+                <form id="signupForm" class="auth-form">
+                    <label class="auth-field">
+                        <span class="auth-label">아이디</span>
+                        <input
+                            id="userid"
+                            type="text"
+                            placeholder="아이디를 입력하세요"
+                        />
+                    </label>
+
+                    <label class="auth-field">
+                        <span class="auth-label">비밀번호</span>
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="비밀번호를 입력하세요"
+                        />
+                    </label>
+
+                    <label class="auth-field">
+                        <span class="auth-label">이름</span>
+                        <input
+                            id="name"
+                            type="text"
+                            placeholder="이름을 입력하세요"
+                        />
+                    </label>
+
+                    <label class="auth-field">
+                        <span class="auth-label">이메일</span>
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="이메일을 입력하세요"
+                        />
+                    </label>
+
+                    <button type="submit" class="btn primary auth-button">
+                        회원가입
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    이미 계정이 있으신가요?
+                    <a href="login.html" class="auth-link">로그인</a>
+                </div>
+            </div>
+        </div>
 
         <script type="module" src="./js/signup.js"></script>
     </body>

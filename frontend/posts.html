@@ -1,14 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>게시글 목록 페이지</title>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
-    <body>
-        <h2>게시글 목록</h2>
-        <div id="postList"></div>
-        <button onclick="location.href='post-new.html'">새 글 작성</button>
+    <body class="admin-body">
+        <div class="admin-layout">
+            <!-- 왼쪽 사이드바 -->
+            <aside class="sidebar">
+                <!-- 로고 -->
+                <a href="login.html" class="sidebar-logo" id="logo">
+                    <span class="logo-icon">
+                        <span class="logo-dot"></span>
+                    </span>
+                    <span class="logo-text">
+                        <span class="logo-text-main">WORKPLACE</span>
+                        <span class="logo-text-sub">Admin</span>
+                    </span>
+                </a>
+
+                <!-- 사이드 메뉴 -->
+                <nav class="sidebar-menu">
+                    <div class="menu-section-title">게시판</div>
+                    <button class="menu-item active">게시글 관리</button>
+                    <button class="menu-item">공지 관리</button>
+                    <button class="menu-item">설정</button>
+                </nav>
+            </aside>
+
+            <!-- 오른쪽 메인 영역 -->
+            <div class="main-area">
+                <!-- 상단 바 -->
+                <header class="topbar">
+                    <div class="topbar-left">
+                        <span class="service-name">W Admin</span>
+                        <span class="breadcrumb">게시판 › 게시글</span>
+                    </div>
+                    <div class="topbar-right">
+                        <span class="user-name" id="currentUserName"></span>
+                    </div>
+                </header>
+
+                <!-- 실제 페이지 콘텐츠 -->
+                <main class="content">
+                    <div class="page-header">
+                        <h2>게시글 관리</h2>
+                        <div class="page-actions">
+                            <button id="newPostBtn" class="btn primary">
+                                게시글 추가
+                            </button>
+                        </div>
+                    </div>
+
+                    <section class="card">
+                        <div class="card-header">
+                            <div>전체 목록</div>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="post-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60px">번호</th>
+                                        <th>제목</th>
+                                        <th style="width: 160px">작성자</th>
+                                        <th style="width: 200px">작성일</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="postList">
+                                    <!-- posts.js에서 여기 안에 <tr> 생성 -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
 
         <script type="module" src="./js/posts.js"></script>
     </body>

@@ -1,3 +1,4 @@
+// frontend/js/login.js
 import { saveToken } from "./common.js";
 
 const form = document.getElementById("loginForm");
@@ -20,22 +21,42 @@ form.addEventListener("submit", async (e) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userid: username, password }),
-            // API 스펙에 맞게 key 이름(userid, username 등) 확인해서 맞추기
         });
 
+        console.log("login response status:", res.status);
+
         if (!res.ok) {
-            alert("로그인 실패 (아이디/비밀번호를 확인해주세요)");
+            const errData = await res.json().catch(() => ({}));
+            console.warn("login error response:", errData);
+            alert(
+                errData.message ||
+                    "로그인 실패 (아이디/비밀번호를 확인해주세요)"
+            );
             return;
         }
 
         const data = await res.json();
-        // data.token 형태라고 가정
-        saveToken(data.token);
+        console.log("login success data:", data);
+
+        // 토큰 저장 시도
+        try {
+            saveToken(data.token);
+        } catch (err) {
+            console.warn("토큰 저장 중 에러:", err);
+        }
+
+        // 현재 로그인한 사용자 아이디(또는 이름) 저장
+        try {
+            // userid 대신 name 을 쓰고 싶으면 data.user.name 으로 변경
+            localStorage.setItem("currentUserName", data.user.userid);
+        } catch (err) {
+            console.warn("유저 이름 저장 중 에러:", err);
+        }
 
         // 다음 페이지로 이동
         window.location.href = "posts.html";
     } catch (err) {
-        console.error(err);
+        console.error("로그인 요청 중 예외:", err);
         alert("서버 통신 중 오류가 발생했습니다.");
     }
 });

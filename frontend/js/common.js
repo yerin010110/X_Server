@@ -1,18 +1,25 @@
-// 토큰 저장
 export function saveToken(token) {
-    localStorage.setItem("accessToken", token);
+    try {
+        localStorage.setItem("accessToken", token);
+    } catch (err) {
+        console.warn("토큰 저장 실패:", err);
+    }
 }
 
-// 토큰 가져오기
 export function getToken() {
-    return localStorage.getItem("accessToken");
+    try {
+        return localStorage.getItem("accessToken");
+    } catch (err) {
+        console.warn("토큰 조회 실패:", err);
+        return null;
+    }
 }
 
-// 인증 헤더 생성
 export function authHeader() {
     const token = getToken();
-    return {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-    };
+    const headers = { "Content-Type": "application/json" };
+    if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+    }
+    return headers;
 }

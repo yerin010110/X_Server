@@ -1,17 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>로그인</title>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
-    <body>
-        <h2>로그인</h2>
-        <form id="loginForm">
-            <input id="username" placeholder="아이디" />
-            <input id="password" type="password" placeholder="비밀번호" />
-            <button>로그인</button>
-        </form>
+    <body class="auth-body">
+        <div class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-logo">
+                    <span class="logo-icon">
+                        <span class="logo-dot"></span>
+                    </span>
+                    <div class="auth-logo-text">
+                        <div class="logo-text-main">WORKPLACE</div>
+                        <div class="logo-text-sub">Admin</div>
+                    </div>
+                </div>
+
+                <h2 class="auth-title">로그인</h2>
+
+                <form id="loginForm" class="auth-form">
+                    <label class="auth-field">
+                        <span class="auth-label">아이디</span>
+                        <input
+                            id="username"
+                            type="text"
+                            placeholder="아이디를 입력하세요"
+                        />
+                    </label>
+
+                    <label class="auth-field">
+                        <span class="auth-label">비밀번호</span>
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="비밀번호를 입력하세요"
+                        />
+                    </label>
+
+                    <button type="submit" class="btn primary auth-button">
+                        로그인
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    계정이 없으신가요?
+                    <a href="signup.html" class="auth-link">회원가입</a>
+                </div>
+            </div>
+        </div>
 
         <script type="module" src="./js/login.js"></script>
     </body>

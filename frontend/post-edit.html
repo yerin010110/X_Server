@@ -1,14 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>게시글 수정</title>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
-    <body>
-        <h2>게시글 수정</h2>
-        <textarea id="text"></textarea>
-        <button id="updateBtn">수정하기</button>
+    <body class="admin-body">
+        <div class="admin-layout">
+            <aside class="sidebar">
+                <a href="login.html" class="sidebar-logo" id="logo">
+                    <span class="logo-icon">
+                        <span class="logo-dot"></span>
+                    </span>
+                    <span class="logo-text">
+                        <span class="logo-text-main">WORKPLACE</span>
+                        <span class="logo-text-sub">Admin</span>
+                    </span>
+                </a>
+
+                <nav class="sidebar-menu">
+                    <div class="menu-section-title">게시판</div>
+                    <button class="menu-item active">게시글 관리</button>
+                    <button class="menu-item">공지 관리</button>
+                    <button class="menu-item">설정</button>
+                </nav>
+            </aside>
+
+            <div class="main-area">
+                <header class="topbar">
+                    <div class="topbar-left">
+                        <span class="service-name">W Admin</span>
+                        <span class="breadcrumb">게시판 › 게시글 수정</span>
+                    </div>
+                    <div class="topbar-right">
+                        <span class="user-name">apple 님</span>
+                    </div>
+                </header>
+
+                <main class="content">
+                    <div class="page-header">
+                        <h2>게시글 수정</h2>
+                    </div>
+
+                    <section class="card">
+                        <div class="card-header">내용 수정</div>
+                        <div class="card-body">
+                            <textarea
+                                id="text"
+                                class="post-textarea"
+                                placeholder="게시글 내용을 수정하세요"
+                            ></textarea>
+
+                            <div class="btn-group" style="margin-top: 12px">
+                                <button id="updateBtn" class="btn primary">
+                                    저장
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn"
+                                    onclick="history.back()"
+                                >
+                                    취소
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
 
         <script type="module" src="./js/post-edit.js"></script>
     </body>

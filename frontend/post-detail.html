@@ -1,16 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>게시글 상세</title>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
-    <body>
-        <h2>게시글 상세</h2>
-        <div id="post"></div>
+    <body class="admin-body">
+        <div class="admin-layout">
+            <aside class="sidebar">
+                <a href="login.html" class="sidebar-logo" id="logo">
+                    <span class="logo-icon">
+                        <span class="logo-dot"></span>
+                    </span>
+                    <span class="logo-text">
+                        <span class="logo-text-main">WORKPLACE</span>
+                        <span class="logo-text-sub">Admin</span>
+                    </span>
+                </a>
 
-        <button id="editBtn">수정</button>
-        <button id="deleteBtn">삭제</button>
+                <nav class="sidebar-menu">
+                    <div class="menu-section-title">게시판</div>
+                    <button class="menu-item active">게시글 관리</button>
+                    <button class="menu-item">공지 관리</button>
+                    <button class="menu-item">설정</button>
+                </nav>
+            </aside>
+
+            <div class="main-area">
+                <header class="topbar">
+                    <div class="topbar-left">
+                        <span class="service-name">W Admin</span>
+                        <span class="breadcrumb">게시판 › 게시글 상세</span>
+                    </div>
+                    <div class="topbar-right">
+                        <span class="user-name">apple 님</span>
+                    </div>
+                </header>
+
+                <main class="content">
+                    <div class="page-header">
+                        <h2>게시글 상세</h2>
+                        <div class="page-actions">
+                            <button
+                                type="button"
+                                class="btn"
+                                onclick="location.href='posts.html'"
+                            >
+                                목록
+                            </button>
+                        </div>
+                    </div>
+
+                    <section class="card">
+                        <div class="card-header">
+                            <div>내용</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group" style="margin-bottom: 12px">
+                                <button id="editBtn" class="btn primary">
+                                    수정
+                                </button>
+                                <button id="deleteBtn" class="btn danger">
+                                    삭제
+                                </button>
+                            </div>
+
+                            <!-- JS에서 #post 내부에 내용 렌더링 -->
+                            <div id="post" class="post-detail-box"></div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
 
         <script type="module" src="./js/post-detail.js"></script>
     </body>

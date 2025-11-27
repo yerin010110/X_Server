@@ -1,30 +1,35 @@
-import MongoDB from "mongodb";
-import { useVirtualId } from "../db/database.mjs";
 import mongoose from "mongoose";
+import { useVirtualId } from "../db/database.mjs";
 
-// versionKey: Mongoose가 문서를 저장할 때 자동으로 추가하는 _v라는 필드를 설정
+// User 스키마 정의
 const userSchema = new mongoose.Schema(
     {
-        userid: { type: String, require: true },
-        name: { type: String, require: true },
-        email: { type: String, require: true },
-        password: { type: String, require: true },
-        url: String, // 안넣어줘도 되면 이렇게 표현하기도 합니다.
+        userid: { type: String, required: true, unique: true },
+        password: { type: String, required: true },
+        name: { type: String, required: true },
+        email: { type: String, required: true },
+        url: String,
     },
-    { versionKey: false }
+    { timestamps: true }
 );
 
+// _id → id 가상 필드 설정
 useVirtualId(userSchema);
+
+// 모델 생성
 const User = mongoose.model("User", userSchema);
 
+// 회원 생성
 export async function createUser(user) {
-    return new User(user).save().then((data) => data.id);
+    return new User(user).save();
 }
 
+// userid 로 조회
 export async function findByUserid(userid) {
-    return User.findOne({ userid }); // userid: userid
+    return User.findOne({ userid });
 }
 
+// id(_id) 로 조회
 export async function findById(id) {
     return User.findById(id);
 }
