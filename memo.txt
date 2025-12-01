@@ -76,4 +76,6 @@ git pull origin main
 git merge feature/Mongoose
 
 4. 병합된 main을 원격으로 푸시
-git push orgin main
+git push orgin 
+
+npm create vite@latest Client -- --template react 
